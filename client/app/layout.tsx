@@ -14,7 +14,7 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Webhook Validator",
-  description: "Test and validate your webhook endpoint for the application task.",
+  description: "Test and validate your webhook endpoint One Eleven Developer task.",
 };
 
 export default function RootLayout({

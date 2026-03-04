@@ -9,14 +9,7 @@ export default function Home(): React.ReactElement {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (url.includes('application-task')) {
-      setResponse({
-        error: 'Use your deployed webhook endpoint URL, not the Supabase validation URL.',
-        expected: ['https://your-domain.com/webhook', 'https://your-domain.com/api/webhook'],
-      });
-      return;
-    }
-    setLoading(true);
+    
     const testUrl = `https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=${encodeURIComponent(url)}&email=${encodeURIComponent(email)}`;
     try {
       const res = await fetch(testUrl);
