@@ -86,7 +86,7 @@ main {
   font-size: 0.95rem;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--brand), #0ea5e9);
+  background: green;
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
 }

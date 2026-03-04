@@ -11,7 +11,7 @@ export default function Home(): React.ReactElement {
     e.preventDefault();
     if (url.includes('application-task')) {
       setResponse({
-        error: 'Use your webhook endpoint URL, not the Supabase validation URL.',
+        error: 'Use your deployed webhook endpoint URL, not the Supabase validation URL.',
         expected: ['https://your-domain.com/webhook', 'https://your-domain.com/api/webhook'],
       });
       return;
@@ -36,15 +36,17 @@ export default function Home(): React.ReactElement {
   return (
     <main>
       <section className="card" style={{ padding: '1.2rem', marginBottom: '1rem' }}>
-        <span className="pill">Application Task Validator</span>
+        {/*<span className="pill">Application Task Validator</span>*/}
         <h1 style={{ fontSize: '2rem', margin: '0.8rem 0 0.5rem 0' }}>Webhook API Tester</h1>
         <p className="muted" style={{ marginTop: 0 }}>
           Submit your deployed webhook URL and email to validate the response contract.
         </p>
+        {/*
         <div className="mono" style={{ fontSize: '0.82rem', color: '#0f172a' }}>
           Expected payload: {`POST {"data":"example"}`} <br />
           Expected response: {`{"word":["a","e","e","l","m","p","x"]}`}
         </div>
+          */}
       </section>
 
       <section className="card" style={{ padding: '1.2rem' }}>
@@ -57,7 +59,7 @@ export default function Home(): React.ReactElement {
               id="email"
               className="input"
               type="email"
-              placeholder="you@example.com"
+              placeholder="address@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -75,10 +77,7 @@ export default function Home(): React.ReactElement {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               required
-            />
-            <p className="muted" style={{ marginBottom: 0, fontSize: '0.8rem' }}>
-              Include full protocol (`https://`). Do not paste the Supabase `application-task` URL here.
-            </p>
+            />            
           </div>
           <button className="btn" type="submit" disabled={loading}>
             {loading ? 'Validating...' : 'Validate Endpoint'}
