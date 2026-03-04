@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f8fb;
+  --ink: #101828;
+  --muted: #475467;
+  --panel: #ffffff;
+  --line: #d0d5dd;
+  --brand: #0f766e;
+  --brand-strong: #115e59;
+  --surface: #ecfdf3;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, #d1fae5 0%, transparent 35%),
+    radial-gradient(circle at 90% 20%, #e0f2fe 0%, transparent 35%),
+    linear-gradient(180deg, #f8fafc 0%, #f0f9ff 100%);
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  box-shadow: 0 20px 45px -25px rgb(15 23 42 / 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.mono {
+  font-family: var(--font-mono), monospace;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #86efac;
+  background: var(--surface);
+  border-radius: 999px;
+  color: #166534;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.85rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgb(45 212 191 / 0.18);
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.78rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand), #0ea5e9);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #0b1220;
+  color: #dbeafe;
+}
+
+@media (max-width: 760px) {
+  main {
+    padding: 2rem 0.85rem;
+  }
+}
