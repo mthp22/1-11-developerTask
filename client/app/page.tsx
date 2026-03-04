@@ -9,6 +9,13 @@ export default function Home(): React.ReactElement {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (url.includes('application-task')) {
+      setResponse({
+        error: 'Use your webhook endpoint URL, not the Supabase validation URL.',
+        expected: ['https://your-domain.com/webhook', 'https://your-domain.com/api/webhook'],
+      });
+      return;
+    }
     setLoading(true);
     const testUrl = `https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task?url=${encodeURIComponent(url)}&email=${encodeURIComponent(email)}`;
     try {
@@ -70,7 +77,7 @@ export default function Home(): React.ReactElement {
               required
             />
             <p className="muted" style={{ marginBottom: 0, fontSize: '0.8rem' }}>
-              Include full protocol (`https://`) or validation will fail with invalid URL.
+              Include full protocol (`https://`). Do not paste the Supabase `application-task` URL here.
             </p>
           </div>
           <button className="btn" type="submit" disabled={loading}>
